@@ -208,7 +208,7 @@
             (c/add-resource tmp)
             c/commit!)))))
 
-(def checksum-re #"^cljsjs/(.*/)?(common|production|dev)/.*\.inc\.js$")
+(def checksum-re #"^cljsjs/.*/(common|production|development)/.*\.(ext|inc)\.js$")
 
 (comment
   (re-matches checksum-re "cljsjs/foo/common/foo.inc.js")
@@ -224,7 +224,7 @@
   asks the user to validate changes, or in CI, throw error.
   New checksum are written to the file.
 
-  Default pattern to check is \"^cljsjs/.*/(common|production|dev)/.*.js$\".
+  Default pattern to check is \"^cljsjs/.*/(common|production|development)/.*\\.(ext|inc)\\.js$\".
 
   The checksum file should be commited to git."
   [_ patterns PATTERN [regex] "File patterns to check the checksums for"]
